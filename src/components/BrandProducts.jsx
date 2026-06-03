@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useFetcher, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../app/cartSlice";
+
+
 
 export default function BrandProducts() {
 
+
+
+
+  let dispatch = useDispatch();
   const { brand } = useParams();
   const [bikes, setBikes] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://69463d19ed253f51719d70e6.mockapi.io/students")
+      .get("https://69463d19ed253f51719d70e6.mockapi.io/products")
       .then((res) => {
         // console.log(res.data)
         const filtered = res.data.filter((bike) =>
@@ -19,7 +27,45 @@ export default function BrandProducts() {
       });
   }, [brand]);
 
+  function addProductToCart(product) {
+    let cartProduct = {
+          id: product.id, 
+        title: product.title,
+        image: product.image,
+        price: product.price,
+        quantity: 1
+    }; 
 
+    dispatch(addToCart(cartProduct));
+
+  };
+
+
+  function payment(product) {
+
+  if (!window.Razorpay) {
+    alert("Razorpay SDK not loaded");
+    return;
+  }
+
+  const options = {
+    key: "rzp_test_4yosHYDduPYmKN",
+    amount: Number(product.price) * 100,
+    currency: "INR",
+    name: "BikeHub",
+    description: product.title,
+    image: product.image,
+    handler: function () {
+      alert("Thank You for buying " + product.title);
+    },
+    theme: {
+      color: "#21e3f9"
+    }
+  };
+
+  const rzp1 = new window.Razorpay(options);
+  rzp1.open();
+}
 
 
 
@@ -75,10 +121,17 @@ export default function BrandProducts() {
                       </span>
                     </div>
 
-                    <button className="btn btn-dark mt-auto rounded-pill">
-                      View Details
-                    </button>
+                    <button  onClick={() => payment(bike)} 
+                      className="btn btn-dark mt-auto m-2 rounded-pill">
+                      Buy Now
+                       </button>
 
+                    <button
+                      onClick={() => addProductToCart(bike)}
+                      className="btn btn-dark mt-auto rounded-pill"
+                    >
+                      Add To Cart
+                    </button>
                   </div>
                 </div>
               </div>

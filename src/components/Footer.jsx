@@ -3,7 +3,7 @@ import React from 'react'
 export default function Footer() {
   return (
      <>
-   <hr />
+   
             {/* <!-- Footer --> */}
             <div className='bg-dark'>
             <footer className="text-center text-lg-start bg-body-tertiary text-muted">

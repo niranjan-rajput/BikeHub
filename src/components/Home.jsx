@@ -9,7 +9,7 @@ export default function Home() {
             <div className="bg-dark">
 
                 <h1 className=" me-5 ms-5 mt-3 p-3 text-white display-3 fw-bold gradient-text hover-grow">
-                    Biker's
+                    BikeHub
                 </h1>
                 <hr className="bg-white"/>
                 <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">

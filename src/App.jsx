@@ -9,13 +9,13 @@ import BrandProducts from "./components/BrandProducts";
 import About from './components/About'
 
 import Contact from './components/Contact'
-import Royal from './components/Royal'
 import Adminlogin from './components/admin/Adminlogin';
 import Dashboard from './components/admin/Dashboard';
 import Addproduct from './components/admin/Addproduct';
 import Products from './components/admin/Products';
 import Layout from './components/admin/Layout';
 import Allproducts from './components/Allproducts'
+import Cart from './components/Cart'
 
 
 
@@ -33,9 +33,9 @@ function App() {
           <Route path='/brand' element={<Brands />} />
           <Route path="/brands/:brand" element={<BrandProducts />} />
           <Route path='/about' element={<About />} />
-         
+           <Route path="/cart" element={<Cart />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/royal' element={<Royal />} />
+          
 
           <Route path='/adminlogin' element={<Adminlogin />} />
 

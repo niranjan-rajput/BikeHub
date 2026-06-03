@@ -38,7 +38,8 @@ function Allproducts() {
                                     <h5>{item.cc} CC</h5>
                                     <h5>{item.weight} Kg</h5>
 
-                                    {/* <button onClick={() => addProductToCart(item)} class="btn btn-outline-primary">Add to Cart</button> */}
+                                    <button onClick={() => addProductToCart(item)} class="btn btn-outline-primary me-1">Buy Now</button>
+                                    <button onClick={() => addProductToCart(item)} class="btn btn-outline-primary">Add to Cart</button>
                                 </div>
                             </div>
                         </div>

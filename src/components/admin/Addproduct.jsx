@@ -86,7 +86,7 @@ const AddProduct = () => {
 
       if (isValid) {
 
-        axios.post("https://69463d19ed253f51719d70e6.mockapi.io/students", data)
+        axios.post("https://69463d19ed253f51719d70e6.mockapi.io/products", data)
           .then((res) => {
             console.log(res.data);
             setData({
@@ -109,7 +109,7 @@ const AddProduct = () => {
 
       if (isValid) {
 
-        axios.put("https://69463d19ed253f51719d70e6.mockapi.io/students/" + id, data)
+        axios.put("https://69463d19ed253f51719d70e6.mockapi.io/products/" + id, data)
           .then((res) => {
             console.log(res.data);
             // setData(res.data)
@@ -122,7 +122,7 @@ const AddProduct = () => {
 
   useEffect(() => {
     if (id) {
-      axios.get("https://69463d19ed253f51719d70e6.mockapi.io/students/" + id)
+      axios.get("https://69463d19ed253f51719d70e6.mockapi.io/products/" + id)
         .then((res) => {
           console.log(res.data)
           setData({

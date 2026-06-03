@@ -8,7 +8,7 @@ function Products() {
     const [data, setData] = useState([]);
 
     function loadData() {
-        axios.get("https://69463d19ed253f51719d70e6.mockapi.io/students/")
+        axios.get("https://69463d19ed253f51719d70e6.mockapi.io/products/")
 
             .then((res) => {
                 // console.log(res.data);  // [{},{}]
@@ -22,9 +22,9 @@ function Products() {
 
     function handleDelete(id) {
         // console.log(id)
-        axios.delete("https://69463d19ed253f51719d70e6.mockapi.io/students/"+ id)
+        axios.delete("https://69463d19ed253f51719d70e6.mockapi.io/products/"+ id)
             .then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
                 loadData();
             });
 
@@ -50,7 +50,7 @@ function Products() {
                                         <th scope="col">CC</th>
                                         <th scope="col">Weight</th>
                                         <th scope="col">Avarage</th>
-                                        <th scope="col">description</th>
+                                        {/* <th scope="col">description</th> */}
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
@@ -70,7 +70,7 @@ function Products() {
                                                     <td className='text- pt-5'>{edata.cc} cc</td>
                                                     <td className='text- pt-5'>{edata.weight} kg</td>
                                                     <td className='text- pt-5'>{edata.avarage} khp</td>
-                                                    <td className='text- pt-5'>{edata.description}</td>
+                                                    {/* <td className='text- pt-5'>{edata.description}</td> */}
 
                                                     <td>
                                                         <Link to={"/admin/addproduct/" + edata.id} >
